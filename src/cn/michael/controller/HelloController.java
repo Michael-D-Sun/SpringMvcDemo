@@ -1,16 +1,27 @@
 package cn.michael.controller;
 
 
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.mvc.Controller;
 
-public class HelloController implements Controller {
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
-    @Override
-    public ModelAndView handleRequest(javax.servlet.http.HttpServletRequest httpServletRequest, javax.servlet.http.HttpServletResponse httpServletResponse) throws Exception {
+@Controller
+public class HelloController {
+    @RequestMapping("/abc")
+    public ModelAndView hello(HttpServletRequest req, HttpServletResponse resp){
         ModelAndView mv = new ModelAndView();
-        mv.addObject("msg", "hello springmvc");
+
+        //capsule the data which will be displayed in the view
+        mv.addObject("msg","hello springmvc");
+
+        //view name   web-inf/jsp/hello.jsp
         mv.setViewName("hello");
+
         return mv;
     }
+
 }
