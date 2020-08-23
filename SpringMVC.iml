@@ -25,5 +25,7 @@
     <orderEntry type="library" name="spring-aop-5.2.8.RELEASE" level="project" />
     <orderEntry type="library" name="Java EE 6-Java EE 6" level="project" />
     <orderEntry type="library" name="jstl" level="project" />
+    <orderEntry type="library" name="commons-io-2.7" level="project" />
+    <orderEntry type="library" name="commons-fileupload-1.4" level="project" />
   </component>
 </module>
