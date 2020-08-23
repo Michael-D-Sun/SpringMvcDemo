@@ -22,29 +22,36 @@
     </bean>
 
 <!--    Json Config-->
-    <bean id="stringConverter" class="org.springframework.http.converter.StringHttpMessageConverter">
-        <property name="supportedMediaTypes">
-            <list>
-                <value>text/plain;charset=UTF-8</value>
-            </list>
-        </property>
-    </bean>
-    <bean id="jsonConverter" class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter"/>
-    <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
-        <property name="messageConverters">
-            <list>
-                <ref bean="stringConverter"/>
-                <ref bean="jsonConverter"/>
-            </list>
-        </property>
-    </bean>
+<!--    <bean id="stringConverter" class="org.springframework.http.converter.StringHttpMessageConverter">-->
+<!--        <property name="supportedMediaTypes">-->
+<!--            <list>-->
+<!--                <value>text/plain;charset=UTF-8</value>-->
+<!--            </list>-->
+<!--        </property>-->
+<!--    </bean>-->
+<!--    <bean id="jsonConverter" class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter"/>-->
+<!--    <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">-->
+<!--        <property name="messageConverters">-->
+<!--            <list>-->
+<!--                <ref bean="stringConverter"/>-->
+<!--                <ref bean="jsonConverter"/>-->
+<!--            </list>-->
+<!--        </property>-->
+<!--    </bean>-->
 
 <!--    Interception Config-->
     <mvc:interceptors>
         <bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor"/>
         <mvc:interceptor>
             <mvc:mapping path="/**"/>
-            <bean class="cn.michael.interceptor.MyInterceptor"/>
+            <bean class="cn.michael.interceptor.LoginInterceptor">
+                <property name="allowedPass">
+                    <list>
+                        <value>login.do</value>
+                    </list>
+                </property>
+
+            </bean>
         </mvc:interceptor>
     </mvc:interceptors>
 

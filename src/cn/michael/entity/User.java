@@ -1,31 +1,15 @@
 package cn.michael.entity;
 
 public class User {
-    private int id;
     private String name;
-    private String sex;
+    private String password;
 
     @Override
     public String toString() {
         return "User{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", sex='" + sex + '\'' +
+                "name='" + name + '\'' +
+                ", password='" + password + '\'' +
                 '}';
-    }
-
-    public User(int id, String name, String sex) {
-        this.id = id;
-        this.name = name;
-        this.sex = sex;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getName() {
@@ -36,14 +20,11 @@ public class User {
         this.name = name;
     }
 
-    public String getSex() {
-        return sex;
+    public String getPassword() {
+        return password;
     }
 
-    public void setSex(String sex) {
-        this.sex = sex;
+    public void setPassword(String password) {
+        this.password = password;
     }
-
-
-
 }
